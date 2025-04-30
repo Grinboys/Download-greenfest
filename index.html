@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GreenBoys App</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="icon-512.png" sizes="512x512" type="image/png" />
+</head>
+<body>
+  <div class="app-container">
+    <h1>مرحبًا بتطبيق GreenBoys</h1>
+    <p>هذا هو التطبيق التجريبي الخاص بك.</p>
+  </div>
+
+  <script>
+    // تسجيل Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(registration => console.log('Service Worker Registered:', registration.scope))
+          .catch(error => console.error('Service Worker Registration Failed:', error));
+      });
+    }
+  </script>
+</body>
+</html>
